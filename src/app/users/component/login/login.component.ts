@@ -10,7 +10,9 @@ export class LoginComponent implements OnInit {
   login: Login = new Login();
   constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  loginSubmit() {
     console.log(JSON.stringify(this.login));
   }
 }
