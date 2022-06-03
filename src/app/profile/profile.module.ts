@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileService } from './services/profile.service';
 import { httpInterceptors } from '../shared/interceptors';
 import { CreateProfileComponent } from './components/create-profile/create-profile.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,7 @@ import { CreateProfileComponent } from './components/create-profile/create-profi
     CreateProfileComponent
   ],
   imports: [
-    CommonModule,HttpClientModule,
+    CommonModule,HttpClientModule,FormsModule,
     ProfileRoutingModule
   ],
   providers : [ProfileService, httpInterceptors]

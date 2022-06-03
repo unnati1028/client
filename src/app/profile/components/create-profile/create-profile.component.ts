@@ -20,6 +20,15 @@ export class CreateProfileComponent implements OnInit {
 
   createProfileSubmit() {
     console.log(JSON.stringify(this.profile));
+    this.profileService.createProfile(this.profile).subscribe(
+      (res) => {
+        this.router.navigate(['/dashboard']);
+      },
+      (err) => {
+        if(err.error !== null) this.error = err.error;
+        else this.error = {};
+      }
+    )
   }
 
 }
