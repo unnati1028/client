@@ -3,6 +3,7 @@ import { Register } from '../models/register';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Login } from '../models/login';
+import { CreateProfile } from 'src/app/profile/model/createprofile';
 
 const headerData = {
   headers: { 'Content-Type': 'application/json' },
@@ -22,5 +23,9 @@ export class AuthService {
 
   loginUser(login: Login): Observable<any> {
     return this.httpClient.post(this.api + 'login', login);
+  }
+
+  createProfile(profile: CreateProfile): Observable<any>{
+    return this.httpClient.post(this.api + 'profile', profile);
   }
 }
