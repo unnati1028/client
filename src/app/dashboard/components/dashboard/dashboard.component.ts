@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CreateProfile } from 'src/app/profile/model/createprofile';
 import { ProfileService } from 'src/app/profile/services/profile.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private router: Router, private profileService: ProfileService) { }
 
-  profile : any = {};
+  profile : CreateProfile = new CreateProfile();
   error: any = {};
 
   //we want this rest call done instantly

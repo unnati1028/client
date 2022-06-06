@@ -29,7 +29,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     console.log(jwt_decode(token || ''));
     let decoded: any = jwt_decode(token || '');
-    console.log(decoded);
+    console.log(decoded.exp);
 
     if (token == null || token.length == 0) {
       this.router.navigate(['/users/login']);
