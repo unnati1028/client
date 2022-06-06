@@ -1,6 +1,6 @@
 <div>
     <h2 class="my-2">Education Credentials</h2>
-    <table class="table" >
+    <table class="table" *ngIf="edu.length > 0">
         <thead>
           <tr>
             <th>School</th>
@@ -9,11 +9,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Northern Essex</td>
-            <td class="hide-sm">Associates</td>
+          <tr *ngFor="let e of edu">
+            <td>{{e.school}}</td>
+            <td class="hide-sm">{{e.degree}}</td>
             <td class="hide-sm">
-              02-03-2007 - 01-02-2009
+              {{e.to}}
             </td>
             <td>
               <button class="btn btn-danger">
