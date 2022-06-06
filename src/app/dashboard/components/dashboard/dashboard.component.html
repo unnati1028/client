@@ -12,7 +12,7 @@
     <app-display-exp [exp]="profile.experience" (expId)="deleteExperience($event)"></app-display-exp>
     <app-display-edu [edu]="profile.education" (eduId)="deleteEducation($event)"></app-display-edu>
 
-    <div class="my-2" *ngIf="error.noprofile != null">
+    <div class="my-2" *ngIf="error.noprofile == null">
       <button class="btn btn-danger" >
         <i class="fas fa-user-minus"></i>
 

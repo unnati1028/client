@@ -23,7 +23,7 @@ export class DisplayExpComponent implements OnInit {
   }
 
   deleteExp(id: string): void{
-    this.expId.emit(id); //exposes value to parent component (dashboard)
+    this.expId.emit(id); //exposes value to parent component (dashboard), lets it know an event has taken place
     console.log(id);
     window.location.reload();
   }
