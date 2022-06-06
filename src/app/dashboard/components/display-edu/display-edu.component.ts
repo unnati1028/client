@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProfileService } from 'src/app/profile/services/profile.service';
 
 @Component({
   selector: 'app-display-edu',
@@ -7,12 +9,21 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DisplayEduComponent implements OnInit {
 
-  @Input()
-  edu : any[] = [];
+  @Input("edu") 
+  edu: any[] = []; //array
 
-  constructor() { }
+  @Output()
+  eduId: EventEmitter<string> = new EventEmitter<string>();
+  constructor(private profileService: ProfileService, private router: Router) { }
 
   ngOnInit(): void {
+    console.log(this.edu);
+  }
+
+  deleteEdu(id: string): void{
+    this.eduId.emit(id);
+    console.log(id);
+    window.location.reload();
   }
 
 }

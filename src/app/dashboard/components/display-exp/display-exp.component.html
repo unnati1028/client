@@ -16,10 +16,10 @@
           <td>{{e.company}}</td>
           <td class="hide-sm">{{e.title}}</td>
           <td class="hide-sm">
-            {{e.to}}
+            {{e.from | date: "MM-dd-YYY"}} - {{e.to | date: "MM-dd-YYY"}}
           </td>
           <td>
-            <button class="btn btn-danger">
+            <button class="btn btn-danger" (click) = "deleteExp(e._id)">
               Delete
             </button>
           </td>

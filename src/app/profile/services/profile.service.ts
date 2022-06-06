@@ -29,4 +29,11 @@ export class ProfileService {
   createEducation(education : Education){
     return this.httpClient.post(this.api + '/education', education);
   }
+
+  deleteEducation(eduId : string){
+    return this.httpClient.delete(this.api + '/education/'+ eduId);
+  }
+  deleteExperience(expId : string){
+    return this.httpClient.delete(this.api + '/experience/'+ expId);
+  }
 }

@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private router: Router, private profileService: ProfileService) { }
 
-  profile : CreateProfile = new CreateProfile();
+  profile : any = {};
   error: any = {};
 
   //we want this rest call done instantly
@@ -27,8 +27,35 @@ export class DashboardComponent implements OnInit {
       (err) =>{
         console.log(JSON.stringify(err));
         this.error = err.error;
+        this.profile = null;
       }
       );
+  }
+
+  deleteExperience(expId : string): void{
+    console.log(expId);
+    this.profileService.deleteExperience(expId).subscribe(
+      (res) =>{
+        console.log(JSON.stringify(res));
+      },
+      (err) => {
+        console.log(JSON.stringify(err));
+        this.profile = null;
+      }
+    );
+  }
+
+  deleteEducation(eduId : string): void{
+    console.log(eduId);
+    this.profileService.deleteEducation(eduId).subscribe(
+      (res) =>{
+        console.log(JSON.stringify(res));
+      },
+      (err) => {
+        console.log(JSON.stringify(err));
+        this.profile = null;
+      }
+    );
   }
 
 }
