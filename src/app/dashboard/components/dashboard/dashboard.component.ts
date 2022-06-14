@@ -20,8 +20,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.profileService.getProfile().subscribe(
       (response)=>{
-        console.log(JSON.stringify(response));
-        console.log(response.user.name);
         this.profile = response;
       },
       (err) =>{
@@ -33,7 +31,6 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteExperience(expId : string): void{
-    console.log(expId);
     this.profileService.deleteExperience(expId).subscribe(
       (res) =>{
         console.log(JSON.stringify(res));
@@ -46,7 +43,6 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteEducation(eduId : string): void{
-    console.log(eduId);
     this.profileService.deleteEducation(eduId).subscribe(
       (res) =>{
         console.log(JSON.stringify(res));
@@ -56,6 +52,28 @@ export class DashboardComponent implements OnInit {
         this.profile = null;
       }
     );
+  }
+
+  deleteBankAccount(bankId: string): void{
+    this.profileService.deleteBank(bankId).subscribe(
+      (res) =>{
+      
+      },
+      (err) => {
+        this.profile = null;
+      }
+    )
+  }
+
+  deleteBeneficiary(benId: string): void{
+    this.profileService.deleteBeneficiary(benId).subscribe(
+      (res) => {
+        console.log("Deleted " + JSON.stringify(res));
+      },
+      (err) => {
+        this.profile = null;
+      }
+    )
   }
 
 }

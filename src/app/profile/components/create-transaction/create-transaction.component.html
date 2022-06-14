@@ -1,0 +1,73 @@
+<div class="create-transaction">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 m-auto">
+          <a routerLink="/dashboard" class="btn btn-light"> Go Back </a>
+          <h1 class="display-4 text-center">New Transfer</h1>
+          <p class="lead text-center">
+            All values marked with asterisk (*) are required
+          </p>
+          <small class="d-block pb-3">* Total amount</small>
+          <form (ngSubmit)="createTransactionSubmit()">
+            <div class="form-group">
+              <input 
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="100, 20, etc."
+                name="amount"
+                value="mytransactionamount"
+                required
+                [(ngModel)]="transaction.amount"
+              />
+            </div>
+            <div class="d-block invalid-feedback">{{ error.amount }}</div>
+            <small class="d-block pb-3">* Transaction Type </small>
+            <div class="form-group">
+              <select
+                class="form-control form-control-lg"
+                name="type"
+                [(ngModel)]="transaction.type"
+              >
+                <option value="0">* Select Transaction Type</option>
+                <option value="Credit">Credit</option>
+                <option value="debit">debit</option>
+              </select>
+            </div>
+            <div class="d-block invalid-feedback">{{ error.type }}</div>
+            <small class="d-block pb-3">* Beneficiary ID</small>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="1, 2, etc."
+                name="beneficiaryId"
+                value="RecipientId"
+                [(ngModel)]="transaction.benId"
+              />
+              <small class="form-text text-muted"
+                >The number of the account you wish to send money to</small
+              >
+            </div>
+            <small class="d-block pb-3">Reason</small>
+            <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  placeholder="Rent, Retail, Savings, etc."
+                  name="reason"
+                  value="Reason"
+                  [(ngModel)]="transaction.reason"
+                />
+              </div>
+         
+            <div class="d-block invalid-feedback">{{ error.reason }}</div>
+            
+           
+            <input type="submit" class="btn btn-info btn-block mt-4" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

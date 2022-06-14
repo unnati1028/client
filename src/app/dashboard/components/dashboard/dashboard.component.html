@@ -9,8 +9,12 @@
     <div>{{ error.noprofile }}</div>
 
     <app-dashboard-action></app-dashboard-action>
-    <app-display-exp [exp]="profile.experience" (expId)="deleteExperience($event)"></app-display-exp>
-    <app-display-edu [edu]="profile.education" (eduId)="deleteEducation($event)"></app-display-edu>
+    <!-- <app-display-exp [exp]="profile.experience" (expId)="deleteExperience($event)"></app-display-exp>
+    <app-display-edu [edu]="profile.education" (eduId)="deleteEducation($event)"></app-display-edu> -->
+    <app-display-ben [ben]="profile.ben" [profile]="profile" (benId)="deleteBeneficiary($event)"></app-display-ben>
+    <app-display-bank [banks]="profile.banks" [profile]="profile" (delete)="deleteBankAccount($event)" ></app-display-bank>
+    <app-display-transactions [profile]="profile" [transactions]="profile.transactions" ></app-display-transactions>
+    
 
     <div class="my-2" *ngIf="error.noprofile == null">
       <button class="btn btn-danger" >

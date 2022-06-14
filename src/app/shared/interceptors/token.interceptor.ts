@@ -27,9 +27,9 @@ export class TokenInterceptor implements HttpInterceptor {
 
     let token = localStorage.getItem('token');
 
-    console.log(jwt_decode(token || ''));
+    
     let decoded: any = jwt_decode(token || '');
-    console.log(decoded.exp);
+    
 
     if (token == null || token.length == 0) {
       this.router.navigate(['/users/login']);

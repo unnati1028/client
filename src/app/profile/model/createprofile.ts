@@ -1,9 +1,10 @@
+import { Bank } from "./bank";
+import { Beneficiary } from "./beneficiary";
 import { Education } from "./education";
 import { Experience } from "./experience";
 
 export class CreateProfile {
-    handle: string;
-    status: string;
+
     company: string;
     website: string;
     location: string;
@@ -17,5 +18,16 @@ export class CreateProfile {
     instagram: string;
     experience: Experience[];
     education: Education[];
+ 
+    dob:string;
+    handle: string;
+    question: string;
+    answer: string;
+    ssn: string;
+    mobile: string;
+    status: string;
+    banks: Bank[];
+    ben: Beneficiary[];
     user: any;
+    approved:boolean = true;
   }

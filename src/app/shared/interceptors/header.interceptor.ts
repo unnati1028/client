@@ -31,7 +31,6 @@ export class HeaderInterceptor implements HttpInterceptor {
       });
     }
 
-    console.log('hello from interceptor');
     return next.handle(req);
   }
 }

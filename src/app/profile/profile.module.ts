@@ -9,13 +9,19 @@ import { CreateProfileComponent } from './components/create-profile/create-profi
 import { FormsModule } from '@angular/forms';
 import { AddEducationComponent } from './components/add-education/add-education.component';
 import { AddExperienceComponent } from './components/add-experience/add-experience.component';
+import { AddBankComponent } from './components/add-bank/add-bank.component';
+import { AddBeneficiaryComponent } from './components/add-beneficiary/add-beneficiary.component';
+import { CreateTransactionComponent } from './components/create-transaction/create-transaction.component';
 
 
 @NgModule({
   declarations: [
     CreateProfileComponent,
     AddEducationComponent,
-    AddExperienceComponent
+    AddExperienceComponent,
+    AddBankComponent,
+    AddBeneficiaryComponent,
+    CreateTransactionComponent
   ],
   imports: [
     CommonModule,HttpClientModule,FormsModule,

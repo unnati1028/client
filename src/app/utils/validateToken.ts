@@ -8,8 +8,6 @@ const validateToken = () => {
 
     const exp = JSON.parse(JSON.stringify(jwt_decode(token))).exp;
 
-    console.log(exp);
-    console.log(Date.now());
 
     if(exp < Date.now()){
         return true;

@@ -9,6 +9,12 @@ import { httpInterceptors } from '../shared/interceptors';
 import { DashboardActionComponent } from './components/dashboard-action/dashboard-action.component';
 import { DisplayEduComponent } from './components/display-edu/display-edu.component';
 import { DisplayExpComponent } from './components/display-exp/display-exp.component';
+import { DisplayBankComponent } from './components/display-bank/display-bank.component';
+import { CreateTransactionComponent } from '../profile/components/create-transaction/create-transaction.component';
+import { ProfileModule } from '../profile/profile.module';
+import { DisplayTransactionsComponent } from './components/display-transactions/display-transactions.component';
+import { FormsModule } from '@angular/forms';
+import { DisplayBenComponent } from './components/display-ben/display-ben.component';
 
 
 @NgModule({
@@ -16,13 +22,19 @@ import { DisplayExpComponent } from './components/display-exp/display-exp.compon
     DashboardComponent,
     DashboardActionComponent,
     DisplayEduComponent,
-    DisplayExpComponent
+    DisplayExpComponent,
+    DisplayBankComponent,
+    DisplayBenComponent,
+    DisplayTransactionsComponent,
+    
   ],
   imports: [
     CommonModule,HttpClientModule,
-    DashboardRoutingModule
+    FormsModule,
+    DashboardRoutingModule,
   ],
   providers:[
+    ProfileModule,
     ProfileService,
     httpInterceptors
   ]
