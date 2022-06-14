@@ -1,89 +1,9 @@
 <div>
-    <h2 class="my-2">Transaction History
+    <h2 class="my-2">Transaction History  
+      <button (click) = "toggleDisplay()"><i class="fa fa-eye"></i></button>   
     </h2>
     <div *ngIf="toDisplay">
-        
-        <div class="create-transaction">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-8 m-auto">
-                  <h1 class="display-4 text-center">New Transfer</h1>
-                  <p class="lead text-center">
-                    All values marked with asterisk (*) are required
-                  </p>
-
-                  <form (ngSubmit)="createTransactionSubmit()">
-                    <small class="d-block pb-3">* Amount </small>
-                    <div class="form-group">
-                      <input 
-                        type="text"
-                        class="form-control form-control-lg"
-                        placeholder="* 100"
-                        name="amount"
-                        value="mytransactionamount"
-                        required
-                        [(ngModel)]="transaction.amount"
-                      />
-                    </div>
-                    <div class="d-block invalid-feedback">{{ error.amount }}</div>
-                    <small class="d-block pb-3">* Transaction Type</small>
-                    <div class="form-group">
-                      <select
-                        class="form-control form-control-lg"
-                        name="type"
-                        [(ngModel)]="transaction.type"
-                      >
-                        <option value="0">* Select Transaction Type</option>
-                        <option value="Credit">Credit</option>
-                        <option value="Debit">Debit</option>
-                      </select>
-                    </div>
-                    <div class="d-block invalid-feedback">{{ error.type }}</div>
-                    <small class="d-block pb-3">* Select Beneficiary</small>
-                    <div class="form-group">
-                      <select
-                        class="form-control form-control-lg"
-                        name="type"
-                        [(ngModel)]="transaction.benId"
-                      >
-                        <option *ngFor="let b of profile.ben" [value]="b._id">{{b.beneficiaryId}}</option>
- 
-                      </select>
-                    </div>
-                    <small class="d-block pb-3">* Select Your Bank Account</small>
-                    <div class="form-group">
-                      <select
-                        class="form-control form-control-lg"
-                        name="bankId"
-                        [(ngModel)]="transaction.bankId"
-                      >
-                        <option *ngFor="let b of profile.banks" [value]="b._id">{{b.label}}</option>
- 
-                      </select>
-                    </div>
-                    <small class="d-block pb-3">Reason</small>
-                    <div class="form-group">
-                        <input
-                          type="text"
-                          class="form-control form-control-lg"
-                          placeholder="Rent, Retail, Savings, etc."
-                          name="reason"
-                          value="Reason"
-                          [(ngModel)]="transaction.reason"
-                        />
-                      </div>
-                 
-                    <div class="d-block invalid-feedback">{{ error.reason }}</div>
-
-                   
-                    <input type="submit" class="btn btn-info btn-block mt-4" />
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-    </div>
-    <button (click)="toggleForm()">Transfer</button>
+    
     <h4 class="my-3" *ngIf="transactions.length == 0"> There is no content to display. </h4>
     <table class="table" *ngIf="transactions.length > 0">
         <thead>
@@ -110,6 +30,7 @@
           </tr>
         </tbody>
       </table>
+    </div>
 </div>
 
 

@@ -6,22 +6,20 @@
         <tr>
           <th>Beneficiary Name</th>
           <th>Account ID</th>
-          <th class="hide-sm">Delete</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let b of ben">
           <td>
               {{b.beneficiaryId}}
+             
           </td>
           <td>
             {{b._id}}
+            <button  (click)="deleteBeneficiary(b._id)" style="float: right;" >
+              <i class="fas fa-trash"></i>
+          </button>
           </td>
-          <td>
-            <button class="btn btn-danger" (click)="deleteBeneficiary(b._id)">
-                Delete
-            </button>
-        </td>
         </tr>
       </tbody>
     </table>

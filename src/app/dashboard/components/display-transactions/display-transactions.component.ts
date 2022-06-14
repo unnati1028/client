@@ -34,7 +34,7 @@ export class DisplayTransactionsComponent implements OnInit {
     
   }
 
-  toggleForm(){
+  toggleDisplay(){
     this.toDisplay = !this.toDisplay;
   }
 

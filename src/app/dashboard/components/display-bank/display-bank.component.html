@@ -7,7 +7,6 @@
             <th>Balance</th>
             <th>Label</th>
             <th> Account Type</th>
-            <th class="hide-sm">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -20,11 +19,9 @@
             </td>
             <td>
               {{b.type}}
-            </td>
-            <td>
-                <button class="btn btn-danger" (click)="deleteBank(b._id)">
-                    Delete
-                </button>
+              <button  (click)="deleteBank(b._id)" style="float: right;" >
+                <i class="fas fa-trash"></i>
+            </button>
             </td>
           </tr>
         </tbody>

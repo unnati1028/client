@@ -1,6 +1,6 @@
 /* Global Styles */
 :root {
-  --primary-color: #17a2b8;
+  --primary-color: #000606;
   --dark-color: #343a40;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
@@ -288,10 +288,18 @@ button {
   color: #0077b5;
 }
 
+.table{
+  table-layout: fixed;
+  width: 100%;
+  word-wrap: break-word;
+}
+
 .table th,
 .table td {
   padding: 1rem;
   text-align: left;
+  width: fit-content;
+  
 }
 
 .table th {
@@ -340,7 +348,7 @@ button {
 .landing-inner {
   color: #fff;
   height: 100%;
-  width: 80%;
+  width: 95%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -489,7 +497,7 @@ button {
 }
 
 /* Mobile Styles */
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .container {
     margin-top: 8rem;
   }
