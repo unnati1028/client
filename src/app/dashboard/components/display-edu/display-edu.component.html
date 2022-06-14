@@ -1,0 +1,27 @@
+<div>
+    <h2 class="my-2">Education Credentials</h2>
+    <h4 class="my-3" *ngIf="edu.length == 0"> There is no content to display. </h4>
+    <table class="table" *ngIf="edu.length > 0">
+        <thead>
+          <tr>
+            <th>School</th>
+            <th class="hide-sm">Degree</th>
+            <th class="hide-sm">Years</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of edu">
+            <td>{{e.school}}</td>
+            <td class="hide-sm">{{e.degree}}</td>
+            <td class="hide-sm">
+              {{e.from | date: "MM-dd-YYY"}} - {{e.to | date: "MM-dd-YYY"}}
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteEdu(e._id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
