@@ -9,55 +9,53 @@ import { Experience } from '../model/experience';
 import { Transaction } from '../model/transaction';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProfileService {
-
   api = '/api/profile';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getProfile(): Observable<any> {
     return this.httpClient.get(this.api);
   }
 
-  createProfile(profile: CreateProfile): Observable<any>{
+  createProfile(profile: CreateProfile): Observable<any> {
     return this.httpClient.post(this.api, profile);
   }
 
-  createExperience(experience : Experience){
-    return this.httpClient.post(this.api+ '/experience', experience);
+  createExperience(experience: Experience) {
+    return this.httpClient.post(this.api + '/experience', experience);
   }
 
-  createEducation(education : Education){
+  createEducation(education: Education) {
     return this.httpClient.post(this.api + '/education', education);
   }
 
-  deleteEducation(eduId : string){
-    return this.httpClient.delete(this.api + '/education/'+ eduId);
+  deleteEducation(eduId: string) {
+    return this.httpClient.delete(this.api + '/education/' + eduId);
   }
-  deleteExperience(expId : string){
-    return this.httpClient.delete(this.api + '/experience/'+ expId);
+  deleteExperience(expId: string) {
+    return this.httpClient.delete(this.api + '/experience/' + expId);
   }
 
-  createBank(bank: Bank){
+  createBank(bank: Bank) {
     return this.httpClient.post(this.api + '/bank', bank);
   }
 
-  createBeneficiary(beneficiary: Beneficiary){
+  createBeneficiary(beneficiary: Beneficiary) {
     return this.httpClient.post(this.api + '/beneficiary', beneficiary);
   }
 
-  deleteBeneficiary(benId: string){
-    return this.httpClient.delete(this.api + '/beneficiary/'+benId);
+  deleteBeneficiary(benId: string) {
+    return this.httpClient.delete(this.api + '/beneficiary/' + benId);
   }
 
-  deleteBank(bankId : string){
-    return this.httpClient.delete(this.api + '/bank/'+bankId);
+  deleteBank(bankId: string) {
+    return this.httpClient.delete(this.api + '/bank/' + bankId);
   }
 
-  createTransaction(transaction: Transaction){
-    return this.httpClient.post(this.api+ '/transaction', transaction);
+  createTransaction(transaction: Transaction) {
+    return this.httpClient.post(this.api + '/transaction', transaction);
   }
-
 }

@@ -18,25 +18,21 @@ export class TokenInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    
-
-    if (request.url.includes('login') || request.url.includes('register')) {
+    if (request.url.includes('signin') || request.url.includes('signup')) {
       console.log('register/login detected');
       return next.handle(request);
     }
 
     let token = localStorage.getItem('token');
 
-    
     let decoded: any = jwt_decode(token || '');
-    
 
     if (token == null || token.length == 0) {
-      this.router.navigate(['/users/login']);
+      this.router.navigate(['/api/auth/signin']);
     }
 
     request = request.clone({
-      headers: request.headers.set('authorization', token || '')
+      headers: request.headers.set('authorization', token || ''),
     });
 
     return next.handle(request);

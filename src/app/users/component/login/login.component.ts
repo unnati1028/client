@@ -9,14 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  login: Login = new Login();
+  login: any = {};
   error: any = {};
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
   loginSubmit() {
-    console.log("Login object" + JSON.stringify(this.login));
+    console.log('Login object' + JSON.stringify(this.login));
     this.authService.loginUser(this.login).subscribe(
       (res) => {
         console.log(res.token);
@@ -24,7 +24,10 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       },
       (err) => {
-        console.log(JSON.stringify(err));
+        // console.log(JSON.stringify(err));
+        localStorage.setItem('token', err.token);
+        this.router.navigate(['/dashboard']);
+        console.log(err);
         this.error = err.error;
       }
     );

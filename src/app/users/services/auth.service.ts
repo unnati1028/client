@@ -14,18 +14,18 @@ const headerData = {
 export class AuthService {
   //perform dependency injection
 
-  api = '/api/users/';
+  api = '/api/auth/';
   constructor(private httpClient: HttpClient) {}
 
   registerUser(register: Register): Observable<any> {
-    return this.httpClient.post(this.api + 'register', register);
+    return this.httpClient.post(this.api + 'signup', register);
   }
 
   loginUser(login: Login): Observable<any> {
-    return this.httpClient.post(this.api + 'login', login);
+    return this.httpClient.post(this.api + 'signin', login);
   }
 
-  createProfile(profile: CreateProfile): Observable<any>{
-    return this.httpClient.post(this.api + 'profile', profile);
-  }
+  // createProfile(profile: CreateProfile): Observable<any> {
+  //   return this.httpClient.post(this.api + 'profile', profile);
+  // }
 }
