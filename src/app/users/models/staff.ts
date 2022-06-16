@@ -1,6 +1,5 @@
 export class Staff {
-    staffname: string;
-    password: string;
-    type: string;
+  staffName: string;
+  username: string;
+  password: string;
 }
-

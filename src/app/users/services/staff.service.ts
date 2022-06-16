@@ -28,6 +28,10 @@ export class StaffService {
     return this.httpClient.get(this.api + 'staff');
   }
 
+  toggleStaff(staffAccount: any) {
+    return this.httpClient.put(this.api + 'staff', staffAccount);
+  }
+
   getCustomerById(id: string) {
     return this.httpClient.get(this.staffapi + 'customer/' + id);
   }
@@ -60,9 +64,5 @@ export class StaffService {
 
   transfer(transaction: any) {
     return this.httpClient.put(this.staffapi + '/transfer', transaction);
-  }
-
-  loginStaff(staff: Staff): Observable<any> {
-    return this.httpClient.post(this.api + 'login', staff);
   }
 }
