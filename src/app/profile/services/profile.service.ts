@@ -60,4 +60,16 @@ export class ProfileService {
     return this.httpClient.post(this.api+ '/transaction', transaction);
   }
 
+  getBanks(){
+    return this.httpClient.get(this.api + '/banks/all');
+  }
+
+  getAll(){
+    return this.httpClient.get(this.api + '/all');
+  }
+
+  deleteUser(id: any){
+    return this.httpClient.delete(this.api+'/'+ id);
+  }
+
 }
